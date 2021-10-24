@@ -7,10 +7,15 @@ const mockedFetch = nodeFetch as jest.MockedFunction<typeof nodeFetch>;
 
 mockedFetch.mockResolvedValue({ ok: true, json: async () => [] } as any);
 
-// const mockFetch = fetch as jest.MockedFunction<typeof fetch>;
-
-it("creates client", async () => {
-  expect(client).toBeDefined();
-  const res = await client.getUserStudys();
-  console.log(res);
+describe("query fn tests", () => {
+  it("queries studies", async () => {
+    expect(client).toBeDefined();
+    const res = await client.getUserStudys();
+    const calls = mockedFetch.mock.calls;
+    expect(calls.length).toBe(1);
+    const call = calls[0];
+    expect(call[0]).toBe("http://localhost:8042/dicom-web/studies");
+    expect(call[1]).toEqual({ method: "GET", headers: {} });
+    console.log(calls[0]);
+  });
 });
