@@ -1,6 +1,8 @@
 # dicom-web-client
 Simple dicom client with typescript types to interact with dicom-web REST API
 
+__WORK IN PROGRESS__
+
 ## API
 There are 3 levels in this api:
 - Study
@@ -47,6 +49,13 @@ __studyUID__ : string
 
 __getThumbnail() : null | string__
 - calls to dicom-web/studies/{this.StudyInstanceUID}/series/{this.SeriesInstanceUID}/thumbnail and creates blobURL to be used as image source in browser
+
+# Tags
+Tags and their settings are defined in tags.ts.
+
+If you encounter a problem with a tag you can look up the settings for that tag and change the type to __optional__ if you dont need the tag. In that case a default value of "undefined" is returned if it is a date or string or -1 if it is a number. 
+
+If the tag in the server response has a weird format you can specify __customGetters : ((e : unknown)=>unknown)[]__ on the tag, then the parser(getTag()) will try all customGetters, passing in the value of __incomingObject[{tag}]["Value"]__ in the order specified until one customGetter returns a value with the correct return type.
 
 
 

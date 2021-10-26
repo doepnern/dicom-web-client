@@ -12,19 +12,3 @@ export async function getUserStudies(
   const dicomRes = jsonRes.map((e) => new DicomStudyResponse(e));
   return dicomRes;
 }
-
-// //trys to create dicom study from response, throws on invalid or missing value
-// function responseToDicomStudy(obj: unknown): DicomStudyResponse {
-//   const tags = Object.keys(dicomStudyTagMapping);
-//   const dicomStudy: Record<string, string | number> = {};
-//   for (const t of tags) {
-//     dicomStudy[dicomStudyTagMapping[t].name] = getTagValue(
-//       obj,
-//       t,
-//       dicomStudyTagMapping[t]
-//     );
-//   }
-//   if (!isDicomStudyResponse(dicomStudy))
-//     throw new Error("response was not a valid DIcomStudy response");
-//   return dicomStudy;
-// }
