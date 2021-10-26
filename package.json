@@ -1,6 +1,6 @@
 {
-  "name": "dicom-web-client",
-  "version": "1.0.0",
+  "name": "@doepnern1/dicom-web-client",
+  "version": "1.0.13",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -26,5 +26,8 @@
     "node-fetch": "2.6.2"
   },
   "author": "Niclas Doepner",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": [
+    "dicom, dicom-web"
+  ]
 }

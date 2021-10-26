@@ -1,8 +1,10 @@
 import { FetchFunctionType, getFetchFunction } from "./config";
-import { getUserStudys } from "./queries/study.queries";
-import { getSeriesInStudy } from "./queries/studyMetadata.queries";
-import { getSeriesMetadata } from "./queries/series.queries";
-import { getInstanceMetadata } from "./queries/instance.queries";
+import {
+  getUserStudies,
+  getInstanceMetadata,
+  getSeriesInStudy,
+  getSeriesMetadata,
+} from "./queries";
 
 type DicomClientOptions = {
   auth?: string;
@@ -27,14 +29,16 @@ class DicomClient {
   }
 
   // Study level
-  getUserStudys = getUserStudys;
-  getSeriesInStudy = getSeriesInStudy;
+  getUserStudies = getUserStudies;
 
   //Series level
-  getSeriesMetadata = getSeriesMetadata;
+  getSeriesInStudy = getSeriesInStudy;
 
   //Instance level
+  getInstancesInSeries = getSeriesMetadata;
   getInstanceMetadata = getInstanceMetadata;
 }
 
 export { DicomClient };
+export * from "./models";
+export * from "./queries";

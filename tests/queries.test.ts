@@ -10,7 +10,7 @@ mockedFetch.mockResolvedValue({ ok: true, json: async () => [] } as any);
 describe("query fn tests", () => {
   it("queries studies", async () => {
     expect(client).toBeDefined();
-    const res = await client.getUserStudys();
+    await client.getUserStudies();
     const calls = mockedFetch.mock.calls;
     expect(calls.length).toBe(1);
     const call = calls[0];
