@@ -3,6 +3,8 @@ Simple dicom client with typescript types to interact with dicom-web REST API
 
 __WORK IN PROGRESS__
 
+## __[Github](https://github.com/doepnern/dicom-web-client)__
+
 ## API
 There are 3 levels in this api:
 - Study
@@ -43,12 +45,18 @@ Tags included: http://dicom.nema.org/medical/dicom/current/output/chtml/part18/s
 ## DicomSeriesResponse
 Tags included: http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_10.6.3.3.2.html
 
-_Scheduled "ProcedureStepID" and "RequestedProcedureID" is changed to optional due to it missing often_
-
 __studyUID__ : string
 
 __getThumbnail() : null | string__
 - calls to dicom-web/studies/{this.StudyInstanceUID}/series/{this.SeriesInstanceUID}/thumbnail and creates blobURL to be used as image source in browser
+
+_Scheduled "ProcedureStepID" and "RequestedProcedureID" is changed to optional due to it missing often_
+
+## DicomInstanceResponse
+Tags included: http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_10.6.3.3.3.html
+
+__studyUID__ : string
+__seriesUID__ : string
 
 # Tags
 Tags and their settings are defined in tags.ts.

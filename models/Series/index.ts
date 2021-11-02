@@ -1,5 +1,6 @@
 import { DicomClient } from "../..";
 import { SERIES_TAGS } from "../../tags";
+import { DicomGeneralResponse } from "../DicomResponse";
 import { getTag } from "../util";
 
 type DicomSeriesKeys = {
@@ -10,9 +11,10 @@ type DicomSeriesKeys = {
 
 interface DicomSeriesResponseInterface extends DicomSeriesKeys {}
 
-export class DicomSeriesResponse implements DicomSeriesResponseInterface {
-  _rawMessage: unknown | null;
-
+export class DicomSeriesResponse
+  extends DicomGeneralResponse
+  implements DicomSeriesResponseInterface
+{
   //tags
   Modality: string;
   NumberofSeriesRelatedInstances: number;
@@ -36,7 +38,7 @@ export class DicomSeriesResponse implements DicomSeriesResponseInterface {
     studyInstanceUID: string,
     dicomClient: DicomClient
   ) {
-    this._rawMessage = obj;
+    super(obj);
     this.studyInstanceUID = studyInstanceUID;
     this.Modality = getTag(obj, SERIES_TAGS["Modality"]);
     this.NumberofSeriesRelatedInstances = getTag(

@@ -2,6 +2,7 @@
 // import { dicomDateToString } from "../util";
 // import { DicomStudyResponsePresentation } from "../../dist/models";
 import { STUDY_TAGS } from "../../tags";
+import { DicomGeneralResponse } from "../DicomResponse";
 import { dicomDateToString, getTag } from "../util";
 
 type DicomStudyKeys = {
@@ -12,9 +13,10 @@ type DicomStudyKeys = {
 
 interface DicomStudyResponseInterface extends DicomStudyKeys {}
 
-class DicomStudyResponse implements DicomStudyResponseInterface {
-  _rawMessage: unknown | null;
-
+class DicomStudyResponse
+  extends DicomGeneralResponse
+  implements DicomStudyResponseInterface
+{
   InstanceAvailability: string;
   ModalitiesinStudy: string;
   NumberofStudyRelatedInstances: number;
@@ -32,7 +34,7 @@ class DicomStudyResponse implements DicomStudyResponseInterface {
   StudyTime: string;
   AccessionNumber: string;
   constructor(obj: unknown) {
-    this._rawMessage = obj;
+    super(obj);
     this.InstanceAvailability = getTag(obj, STUDY_TAGS["InstanceAvailability"]);
     this.ModalitiesinStudy = getTag(obj, STUDY_TAGS["ModalitiesinStudy"]);
     this.NumberofStudyRelatedInstances = getTag(

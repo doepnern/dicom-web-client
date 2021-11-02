@@ -78,9 +78,21 @@ export const SERIES_TAGS = {
   RequestedProcedureID: { tag: "00401001", type: "optional", vr: "string" },
 } as const;
 
-export const SERIES_METADATA_TAGS = {
-  "SOP​Instance​UID": "00080018",
-};
+export const INSTANCE_TAGS = {
+  SOPClassUID: { tag: "00080016", type: "required", vr: "string" },
+  SOPInstanceUID: { tag: "00080018", type: "unique", vr: "string" },
+  InstanceAvailability: { tag: "00080056", type: "optional", vr: "string" },
+  TimezoneOffsetFromUTC: { tag: "00080201", type: "optional", vr: "string" },
+  //should be required, but is missing from orthanc response
+  RetrieveURL: { tag: "00081190", type: "optional", vr: "string" },
+  InstanceNumber: { tag: "00200013", type: "required", vr: "number" },
+  Rows: { tag: "00280010", type: "optional", vr: "number" },
+  Columns: { tag: "00280011", type: "optional", vr: "number" },
+} as const;
+
+// export const SERIES_METADATA_TAGS = {
+//   "SOP​Instance​UID": "00080018",
+// };
 
 // export const SERIES_TAGS_OLD = {
 //   modality: "00080060",
