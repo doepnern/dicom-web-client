@@ -4,7 +4,9 @@ import {
   getInstanceMetadata,
   getSeriesInStudy,
   getSeriesMetadata,
+  uploadDicoms,
 } from "./queries";
+import { uploadDicomsXMLHTTP } from "./queries/upload";
 
 type DicomClientOptions = {
   auth?: string;
@@ -37,6 +39,10 @@ class DicomClient {
   //Instance level
   getInstancesInSeries = getSeriesMetadata;
   getInstanceMetadata = getInstanceMetadata;
+
+  //upload (no regular endpoint)
+  uploadDicoms = uploadDicoms;
+  uploadDicomsXMLHTTP = uploadDicomsXMLHTTP;
 }
 
 export { DicomClient };

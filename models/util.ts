@@ -40,11 +40,11 @@ export function getTag(obj: unknown, tagOptions: tagOptions): number | string {
   } catch (error) {
     //if value was optional, ignore error
     if (tagOptions.type === "optional") {
-      console.warn(
-        "didnt find value for tag " +
-          tag +
-          " returning default value or empty string instead"
-      );
+      // console.warn(
+      //   "didnt find value for tag " +
+      //     tag +
+      //     " returning default value or empty string instead"
+      // );
       return vr === "number" ? -1 : "undefined";
     }
     throw error;
