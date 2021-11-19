@@ -6,6 +6,7 @@ import {
   getSeriesMetadata,
   uploadDicoms,
 } from "./queries";
+import { downloadStudy } from "./queries/study.queries";
 import { uploadDicomsXMLHTTP } from "./queries/upload";
 
 type DicomClientOptions = {
@@ -35,6 +36,7 @@ class DicomClient {
 
   //Series level
   getSeriesInStudy = getSeriesInStudy;
+  downloadStudy = downloadStudy;
 
   //Instance level
   getInstancesInSeries = getSeriesMetadata;
