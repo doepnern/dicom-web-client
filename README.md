@@ -56,6 +56,7 @@ _Scheduled "ProcedureStepID" and "RequestedProcedureID" is changed to optional d
 Tags included: http://dicom.nema.org/medical/dicom/current/output/chtml/part18/sect_10.6.3.3.3.html
 
 __studyUID__ : string
+
 __seriesUID__ : string
 
 # Tags
