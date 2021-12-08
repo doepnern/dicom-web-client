@@ -12,7 +12,7 @@ There are 3 levels in this api:
 - Intance
 
 Each of them has their own interfaces and slightly different types available.
-They try to representate the leves specified in the official DICOM specifications. However this API was built for a personal project with limited need for support of DICOM-Tags, so it is not nearly complete.
+They try to representate the levels specified in the official DICOM specifications. However this API was built for a personal project with limited need for support of DICOM-Tags, so it is not nearly complete.
 
 This package uses the fetch API (https://developer.mozilla.org/de/docs/Web/API/Fetch_API)
 
