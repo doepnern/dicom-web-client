@@ -30,7 +30,7 @@ export const STUDY_TAGS = {
     ],
   },
   PatientID: { tag: "00100020", type: "required", vr: "string" },
-  PatientBirthDate: { tag: "00100030", type: "required", vr: "date" },
+  PatientBirthDate: { tag: "00100030", type: "optional", vr: "date" },
   PatientSex: { tag: "00100040", type: "required", vr: "string" },
   StudyInstanceUID: { tag: "0020000D", type: "unique", vr: "string" },
   StudyID: { tag: "00200010", type: "required", vr: "string" },
@@ -46,7 +46,7 @@ export const STUDY_TAGS = {
   },
   StudyDate: { tag: "00080020", type: "required", vr: "date" },
   StudyTime: { tag: "00080030", type: "required", vr: "string" },
-  AccessionNumber: { tag: "00080050", type: "required", vr: "string" },
+  AccessionNumber: { tag: "00080050", type: "optional", vr: "string" },
 } as const;
 
 export const SERIES_TAGS = {

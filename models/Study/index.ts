@@ -1,6 +1,5 @@
 // import { DicomStudyResponse } from "./types";
 // import { dicomDateToString } from "../util";
-// import { DicomStudyResponsePresentation } from "../../dist/models";
 import { STUDY_TAGS } from "../../tags";
 import { DicomGeneralResponse } from "../DicomResponse";
 import { dicomDateToString, getTag } from "../util";
