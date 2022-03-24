@@ -6,10 +6,10 @@ export type tagOptions = {
 };
 export const STUDY_TAGS = {
   InstanceAvailability: { tag: "00080056", type: "optional", vr: "string" },
-  ModalitiesinStudy: { tag: "00080061", type: "required", vr: "string" },
+  ModalitiesinStudy: { tag: "00080061", type: "optional", vr: "string" },
   ReferringPhysiciansName: {
     tag: "00080090",
-    type: "required",
+    type: "optional",
     vr: "string",
     customGetters: [
       (e: unknown) => e,
@@ -21,7 +21,7 @@ export const STUDY_TAGS = {
   RetrieveURL: { tag: "00081190", type: "optional", vr: "string" },
   PatientName: {
     tag: "00100010",
-    type: "required",
+    type: "optional",
     vr: "string",
     customGetters: [
       (e: unknown) => e,
@@ -29,36 +29,36 @@ export const STUDY_TAGS = {
       (e: unknown) => JSON.stringify(e) as unknown,
     ],
   },
-  PatientID: { tag: "00100020", type: "required", vr: "string" },
+  PatientID: { tag: "00100020", type: "optional", vr: "string" },
   PatientBirthDate: { tag: "00100030", type: "optional", vr: "date" },
-  PatientSex: { tag: "00100040", type: "required", vr: "string" },
+  PatientSex: { tag: "00100040", type: "optional", vr: "string" },
   StudyInstanceUID: { tag: "0020000D", type: "unique", vr: "string" },
   StudyID: { tag: "00200010", type: "required", vr: "string" },
   NumberofStudyRelatedSeries: {
     tag: "00201206",
-    type: "required",
+    type: "optional",
     vr: "number",
   },
   NumberofStudyRelatedInstances: {
     tag: "00201208",
-    type: "required",
+    type: "optional",
     vr: "number",
   },
-  StudyDate: { tag: "00080020", type: "required", vr: "date" },
-  StudyTime: { tag: "00080030", type: "required", vr: "string" },
+  StudyDate: { tag: "00080020", type: "optional", vr: "date" },
+  StudyTime: { tag: "00080030", type: "optional", vr: "string" },
   AccessionNumber: { tag: "00080050", type: "optional", vr: "string" },
 } as const;
 
 export const SERIES_TAGS = {
-  Modality: { tag: "00080060", type: "required", vr: "string" },
+  Modality: { tag: "00080060", type: "optional", vr: "string" },
   TimezoneOffsetFromUTC: { tag: "00080201", type: "optional", vr: "string" },
   SeriesDescription: { tag: "0008103E", type: "optional", vr: "string" },
-  RetrieveURL: { tag: "00081190", type: "required", vr: "string" },
+  RetrieveURL: { tag: "00081190", type: "optional", vr: "string" },
   SeriesInstanceUID: { tag: "0020000E", type: "unique", vr: "string" },
-  SeriesNumber: { tag: "00200011", type: "required", vr: "number" },
+  SeriesNumber: { tag: "00200011", type: "optional", vr: "number" },
   NumberofSeriesRelatedInstances: {
     tag: "00201209",
-    type: "required",
+    type: "optional",
     vr: "number",
   },
   PerformedProcedureStepStartDate: {
@@ -79,13 +79,13 @@ export const SERIES_TAGS = {
 } as const;
 
 export const INSTANCE_TAGS = {
-  SOPClassUID: { tag: "00080016", type: "required", vr: "string" },
+  SOPClassUID: { tag: "00080016", type: "optional", vr: "string" },
   SOPInstanceUID: { tag: "00080018", type: "unique", vr: "string" },
   InstanceAvailability: { tag: "00080056", type: "optional", vr: "string" },
   TimezoneOffsetFromUTC: { tag: "00080201", type: "optional", vr: "string" },
   //should be required, but is missing from orthanc response
   RetrieveURL: { tag: "00081190", type: "optional", vr: "string" },
-  InstanceNumber: { tag: "00200013", type: "required", vr: "number" },
+  InstanceNumber: { tag: "00200013", type: "optional", vr: "number" },
   Rows: { tag: "00280010", type: "optional", vr: "number" },
   Columns: { tag: "00280011", type: "optional", vr: "number" },
 } as const;
