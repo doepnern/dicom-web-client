@@ -5,7 +5,7 @@ import { DicomStudyResponse } from "../models/Study";
 export async function getUserStudies(
   this: DicomClient
 ): Promise<DicomStudyResponse[]> {
-  const response = await this._fetchFunction(`dicom-web/studies`);
+  const response = await this._fetchFunction(`/dicom-web/studies`);
   const jsonRes: unknown = await response.json();
   if (!(jsonRes instanceof Array))
     throw new Error("response was not a valid array");
@@ -20,7 +20,9 @@ export async function downloadStudy(
   onError?: (err: Error) => void
 ) {
   try {
-    const response = await this._fetchFunction(`dicom-web/studies/${studyUID}`);
+    const response = await this._fetchFunction(
+      `/dicom-web/studies/${studyUID}`
+    );
     const zipData = await receiveWithProgress(response, onProgress);
     const zipURL = URL.createObjectURL(new Blob([zipData]));
     return zipURL;

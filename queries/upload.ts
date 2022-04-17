@@ -60,7 +60,7 @@ export function uploadDicomsXMLHTTP(
     });
     const totalSize = files.reduce((acc, cur) => acc + cur.size, 0);
     const req = new XMLHttpRequest();
-    req.open("POST", "/files/uploadDicoms", true);
+    req.open("POST", this._baseURL + "/files/uploadDicoms", true);
 
     req.setRequestHeader("total-file-size", totalSize + "");
     req.setRequestHeader("total-file-number", files.length + "");

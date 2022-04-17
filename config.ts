@@ -18,7 +18,8 @@ const basicFetch: FetchFunctionType = async function _basicFetch(
     ? { Authorization: this._auth }
     : {};
   const headers = new Headers({ ...authHeader, ...changedHeaders });
-  const request = new Request(url, {
+  const targetUrl = this._baseURL ? this._baseURL + url : url;
+  const request = new Request(targetUrl, {
     method: "GET",
     headers: headers,
     mode: "cors",
