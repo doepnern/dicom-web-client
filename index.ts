@@ -12,6 +12,7 @@ import { uploadDicomsXMLHTTP } from "./queries/upload";
 type DicomClientOptions = {
   auth?: string;
   baseURL?: string;
+  uploadEndpoint?: "/files/uploadDicomSingle" | "/files/uploadDicoms";
 };
 
 class DicomClient {
@@ -20,11 +21,13 @@ class DicomClient {
   _auth: string | null;
   //should be set when operating in node environment, in browser environment optional
   _baseURL: string | null;
+  _uploadEndpoint: DicomClientOptions["uploadEndpoint"];
 
-  constructor({ auth, baseURL }: DicomClientOptions = {}) {
+  constructor({ auth, baseURL, uploadEndpoint }: DicomClientOptions = {}) {
     this._fetchFunction = getFetchFunction();
     this._auth = auth ?? null;
     this._baseURL = baseURL;
+    this._uploadEndpoint = uploadEndpoint ?? "/files/uploadDicoms";
   }
 
   setFetchFunction(fetchFn: FetchFunctionType) {

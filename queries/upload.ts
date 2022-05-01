@@ -1,5 +1,4 @@
 //This is cerated for a custom endpoint I created which allows uploads of dicoms as FormData
-
 import { DicomClient } from "..";
 
 export async function uploadDicoms(
@@ -12,7 +11,7 @@ export async function uploadDicoms(
   });
   const totalSize = files.reduce((acc, cur) => acc + cur.size, 0);
   const response = await this._fetchFunction(
-    `/files/uploadDicoms`,
+    this._uploadEndpoint,
     {
       method: "POST",
       body: data,
@@ -60,7 +59,7 @@ export function uploadDicomsXMLHTTP(
     });
     const totalSize = files.reduce((acc, cur) => acc + cur.size, 0);
     const req = new XMLHttpRequest();
-    req.open("POST", this._baseURL + "/files/uploadDicoms", true);
+    req.open("POST", this._baseURL + this._uploadEndpoint, true);
 
     req.setRequestHeader("total-file-size", totalSize + "");
     req.setRequestHeader("total-file-number", files.length + "");
