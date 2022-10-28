@@ -13,6 +13,7 @@ type DicomClientOptions = {
   auth?: string;
   baseURL?: string;
   uploadEndpoint?: "/files/uploadDicomSingle" | "/files/uploadDicoms";
+  customFetch?: any;
 };
 
 class DicomClient {
@@ -23,8 +24,13 @@ class DicomClient {
   _baseURL: string | null;
   _uploadEndpoint: DicomClientOptions["uploadEndpoint"];
 
-  constructor({ auth, baseURL, uploadEndpoint }: DicomClientOptions = {}) {
-    this._fetchFunction = getFetchFunction();
+  constructor({
+    auth,
+    baseURL,
+    uploadEndpoint,
+    customFetch,
+  }: DicomClientOptions = {}) {
+    this._fetchFunction = getFetchFunction(customFetch);
     this._auth = auth ?? null;
     this._baseURL = baseURL;
     this._uploadEndpoint = uploadEndpoint ?? "/files/uploadDicoms";
